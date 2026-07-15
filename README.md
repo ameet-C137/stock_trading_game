@@ -12,23 +12,6 @@ Credits ("ameet") are shown bottom-right on the splash screen.
 - `stock_tycoon.c` — the entire game (single file, ~1000 lines)
 - `icon.png` — 10x10 app icon shown in the Flipper's app menu
 
-## Important note on how this was built
-
-I don't have network access to Flipper's SDK servers from this sandbox
-(`update.flipperzero.one` is blocked), so I could not run the actual
-Flipper build toolchain here to produce a ready-to-flash `.fap` file.
-
-To compensate, I downloaded the **real, current Flipper firmware source**
-from GitHub and diffed every API call in this file (canvas drawing,
-input handling, timers, mutexes, message queues, the speaker HAL, and the
-storage HAL) against the actual headers to make sure signatures, enum
-names, and macros are correct. I also ran the file through a strict C
-syntax check (`-Wall -Wextra -Wshadow`) against stub headers that mirror
-the real ones, and it compiled with zero warnings. So the code should build
-cleanly, but since I couldn't produce the final `.fap` binary myself, please
-follow the build steps below (they take about 5 minutes) and let me know
-if you hit any errors — paste them back to me and I'll fix them immediately.
-
 ## How to build the .fap file
 
 You have three options. Option 1 is easiest.
@@ -114,5 +97,3 @@ source of an issue, if any, is a small API drift in whatever exact
 firmware version your ufbt SDK resolves to (Flipper's SDK does evolve),
 since I verified against the `dev` branch but you may build against a
 tagged release. These are typically one- or two-line fixes.
-
-— Game by ameet
