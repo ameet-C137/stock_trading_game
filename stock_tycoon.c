@@ -198,7 +198,7 @@ static int32_t load_high_score(void) {
         uint16_t read = storage_file_read(file, buf, sizeof(buf) - 1);
         if(read > 0) {
             buf[read] = '\0';
-            score = (int32_t)atol(buf);
+            score = (int32_t)strtol(buf, NULL, 10);
         }
     }
     storage_file_close(file);
