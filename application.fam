@@ -1,0 +1,13 @@
+App(
+    appid="stock_tycoon",
+    name="Stock Tycoon",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="stock_tycoon_app",
+    requires=["gui"],
+    stack_size=2 * 1024,
+    fap_category="Games",
+    fap_icon="icon.png",
+    fap_version="1.0",
+    fap_author="Ameet",
+    fap_description="A fast-paced stock trading game. Buy low, sell high and grow your net worth before the market closes!",
+)
